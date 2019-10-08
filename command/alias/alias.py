@@ -3,6 +3,11 @@ import yaml
 import os
 
 
+def _alias(cmd, path):
+    text = f"@echo off\npython {__file__}\\..\\..\\..\\main.py {cmd} %*\n"
+    open(f"{path}/{cmd}.bat", "w").write(text)
+
+
 class Alias(Command):
     def __init__(self, options, argv):
         self.options = options
@@ -33,12 +38,8 @@ class Alias(Command):
         
         for cmd in cmds:
             for path in paths:
+                _alias(cmd, path)
                 print(f"'{cmd}' alias has made to {path}")
-                self._alias(cmd, path)
-
-    def _alias(self, cmd, path):
-        text = f"@echo off\npython {__file__}\\..\\..\\..\\main.py {cmd} %*\n"
-        open(f"{path}/{cmd}.bat", "w").write(text)
 
     def _find_commands(self):
         return [cmd for cmd in self.argv if cmd in self.poppo_commands]

@@ -1,7 +1,11 @@
 from .. import Command
 import os
-import sys
-import subprocess
+
+
+def _make_template(cmd, d):
+    temp = open(f"{__file__}/../template", "r").read()
+    open(f"{d}/{cmd}.py", "w").write(temp.format(cmd.capitalize()))
+
 
 class New(Command):
     def __init__(self, options, argv):
@@ -22,7 +26,7 @@ class New(Command):
             d = f"{__file__}/../../{cmd}"
             os.mkdir(d)
             open(f"{d}/__init__.py", "w").write(f"from command.{cmd}.{cmd} import *\n")
-            self._make_template(cmd, d)
+            _make_template(cmd, d)
 
             # コマンドの紐づけ
             # commandフォルダ直下の__init__.pyにコマンドを追加
@@ -34,8 +38,3 @@ class New(Command):
             # factoryにコマンドを追加
             d = f"{__file__}/../../../command_factory.py"
             open(d, "a").write(f'command_map["{cmd}"] = cmd.{cmd.capitalize()}\n')
-
-
-    def _make_template(self, cmd, d):
-        temp = open(f"{__file__}/../template", "r").read()
-        open(f"{d}/{cmd}.py", "w").write(temp.format(cmd.capitalize()))
