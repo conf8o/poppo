@@ -21,25 +21,25 @@ class Alias(Command):
     def exec(self):
         cmds = self._find_commands()
         if not cmds:
-            print("alias commmand needs some commands.\nvalid commands below:")
+            print("Alias command needs commands.\nValid commands are below:")
             print(*self.poppo_commands, sep="\n")
             return
 
         paths = self._find_paths()
         if not paths:
             print("There is no valid paths to make aliases.")
-            print(f"May you make aliases at default path?: {self.default_path}")
+            print(f"Would you like to make alias(es) in the default path?: {self.default_path}")
             ans = input("[y/n] >>")
             if ans in {"Y", "y"}:
                 paths = [self.default_path]
             else:
-                print("making alias has canceled")
+                print("Making alias has been canceled.")
                 return
         
         for cmd in cmds:
             for path in paths:
                 _alias(cmd, path)
-                print(f"'{cmd}' alias has made to {path}")
+                print(f"'{cmd}' alias has been made into {path}")
 
     def _find_commands(self):
         return [cmd for cmd in self.argv if cmd in self.poppo_commands]

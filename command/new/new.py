@@ -38,3 +38,4 @@ class New(Command):
             # factoryにコマンドを追加
             d = f"{__file__}/../../../command_factory.py"
             open(d, "a").write(f'command_map["{cmd}"] = cmd.{cmd.capitalize()}\n')
+            print(f"'{cmd}' command has been created.")

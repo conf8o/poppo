@@ -1,5 +1,4 @@
 from .. import Command
-import sys
 import os
 import shutil
 
@@ -18,7 +17,7 @@ class Delete(Command):
     
     def exec(self):
         if not self.argv:
-            print("'new' command needs 1 or more arguments, given 0") 
+            print("'delete' command needs 1 or more arguments, given 0")
             return
         self._rm()
 
@@ -26,17 +25,18 @@ class Delete(Command):
         for cmd in self.argv:
             d = f"{__file__}\\..\\..\\{cmd}"
             if os.path.exists(d):
+                print(f"Deletes {cmd}'s:")
                 shutil.rmtree(d)
+                print("    command folder")
             else:
-                print(f"no such command. {cmd}")
+                print(f"No such command: {cmd}")
                 return
-            print("command folder")
 
             _delete(cmd, f"{__file__}/../../__init__.py")
-            print("__init__.py in command folder")
+            print("    __init__.py in command folder")
 
             _delete(cmd, f"{__file__}/../../../application.yaml")
-            print("application.yaml")
+            print("   application.yaml")
 
             _delete(cmd, f"{__file__}/../../../command_factory.py")
-            print("command_factory.py")
+            print("   command_factory.py")
