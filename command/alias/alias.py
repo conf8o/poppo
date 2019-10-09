@@ -21,7 +21,7 @@ class Alias(Command):
     def exec(self):
         cmds = self._find_commands()
         if not cmds:
-            print("needs commands.\nvalid commands below:")
+            print("alias commmand needs some commands.\nvalid commands below:")
             print(*self.poppo_commands, sep="\n")
             return
 
