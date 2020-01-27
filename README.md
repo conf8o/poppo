@@ -9,10 +9,7 @@
 $ python main.py new mycommand
 
 ```
-
----
-
-### (newコマンドでやっていること)
+### newコマンドでやっていること
 ### commandフォルダにコマンドのフォルダを作成し、コマンドクラスを作成
 
 ```python
@@ -55,10 +52,10 @@ commands_dict["mycommand"] = cmd.MyCommand
 
 ```
 
----
-
 ## コマンドクラスの実装
 
+### 開発ではexecに処理を定義する。
+### コマンドライン引数とオプション("-"で始まる引数)はそれぞれargvとoptionsにリストで格納される。
 ```python
 class MyCommand(Command):
     def __init__(self, options, argv):
@@ -80,11 +77,11 @@ class MyCommand(Command):
 $ python main.py mycommand arg -o
 ```
 
-## 便利機能
+## その他の機能
 
 ### コマンドのエイリアス作成
 
-### ailiasフォルダのalias.yamlにリリース先のパスを設定
+#### ailiasフォルダのalias.yamlにリリース先のパスを設定
 
 ```yaml
 path:
@@ -93,7 +90,7 @@ path:
   mypath: "C:Users..."
 ```
 
-### リリースコマンドを実行
+#### リリースコマンドを実行
 
 ```shell
 $ python main.py alias mycommand user
@@ -108,7 +105,7 @@ $ python main.py alias mycommand user
 $ ./mycommand arg -o
 ```
 
-## コマンドの削除
+### コマンドの削除
 
 ```shell
 $ python main.py delete mycommand
