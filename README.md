@@ -54,8 +54,9 @@ commands_dict["mycommand"] = cmd.MyCommand
 
 ## コマンドクラスの実装
 
-### 開発ではexecに処理を定義する。
-### コマンドライン引数とオプション("-"で始まる引数)はそれぞれargvとoptionsにリストで格納される。
+開発ではexecに処理を定義する。
+コマンドライン引数とオプション("-"で始まる引数)はそれぞれargvとoptionsにリストで格納される。
+
 ```python
 class MyCommand(Command):
     def __init__(self, options, argv):
