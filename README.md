@@ -2,15 +2,17 @@
 
 簡易コマンドラインアプリ開発フレームワーク
 
-## コマンドの追加
+## 使い方
+
+newコマンドにより、コマンドクラスが作成される。
 
 ```shell
 
 $ python main.py new mycommand
 
 ```
-### newコマンドでやっていること
-### commandフォルダにコマンドのフォルダを作成し、コマンドクラスを作成
+
+commandフォルダにコマンドクラスのファイルが作成される。
 
 ```python
 from .. import Command
@@ -25,36 +27,9 @@ class MyCommand(Command):
 
 ```
 
-### 作成したコマンドのフォルダの__init__.pyを作成
-
-```python
-from command.mycommand.mycommand import *
-```
-
-### commandフォルダの__init__.pyにコマンドクラスのインポートを追加
-
-```python
-from .mycommand import *
-```
-
-### application.yamlにコマンドを設定
-
-```yaml
-commands:
-  - mycommand
-
-```
-
-### command_factory.pyでコマンドとコマンドクラスを対応させる
-
-```python
-commands_dict["mycommand"] = cmd.MyCommand
-
-```
-
 ## コマンドクラスの実装
 
-開発ではexecに処理を定義する。
+execに処理を定義する。
 コマンドライン引数とオプション("-"で始まる引数)はそれぞれargvとoptionsにリストで格納される。
 
 ```python
@@ -69,7 +44,7 @@ class MyCommand(Command):
         # TODO オプションに対する引数の対応。
 
     def exec(self):
-        # インスタンス変数を使って実装する。
+        # 実装。
 ```
 
 ## コマンドの実行
@@ -96,7 +71,6 @@ path:
 ```shell
 $ python main.py alias mycommand user
 ```
-(絶対パスや相対パスも可能)
 
 バッチファイルが指定のパスに作成されるため、
 
@@ -110,4 +84,35 @@ $ ./mycommand arg -o
 
 ```shell
 $ python main.py delete mycommand
+```
+
+---
+
+## newコマンドで作成されるものたち
+
+### 作成したコマンドのフォルダの__init__.pyを作成
+
+```python
+from command.mycommand.mycommand import *
+```
+
+### commandフォルダの__init__.pyにコマンドクラスのインポートを追加
+
+```python
+from .mycommand import *
+```
+
+### application.yamlにコマンドを設定
+
+```yaml
+commands:
+  - mycommand
+
+```
+
+### command_factory.pyでコマンドとコマンドクラスを対応させる
+
+```python
+commands_dict["mycommand"] = cmd.MyCommand
+
 ```
