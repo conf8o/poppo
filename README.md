@@ -50,7 +50,7 @@ class MyCommand(Command):
 ## コマンドの実行
 
 ```shell
-$ python main.py mycommand arg -o
+$ python -m poppo mycommand arg -o
 ```
 
 ## その他の機能
