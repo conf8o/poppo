@@ -8,7 +8,7 @@ newコマンドにより、コマンドクラスが作成される。
 
 ```shell
 
-$ python main.py new mycommand
+$ python -m poppo new mycommand
 
 ```
 
@@ -69,7 +69,7 @@ path:
 #### リリースコマンドを実行
 
 ```shell
-$ python main.py alias mycommand user
+$ python -m poppo alias mycommand user
 ```
 
 バッチファイルが指定のパスに作成されるため、
@@ -83,7 +83,7 @@ $ ./mycommand arg -o
 ### コマンドの削除
 
 ```shell
-$ python main.py delete mycommand
+$ python -m poppo delete mycommand
 ```
 
 ---
