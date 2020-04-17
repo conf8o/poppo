@@ -1,7 +1,7 @@
 import yaml
 from typing import List, Type
-from command_factory import commander_of, command_map
-from command import Command
+from .command_factory import commander_of, command_map
+from .command import Command
 import os
 
 

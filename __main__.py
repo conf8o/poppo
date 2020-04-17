@@ -1,4 +1,4 @@
 import sys
-import poppo
+from . import poppo
 args = sys.argv[1:]
 poppo.main(args)

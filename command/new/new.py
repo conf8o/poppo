@@ -25,13 +25,13 @@ class New(Command):
             # コマンドのディレクトリ作成
             d = f"{__file__}/../../{cmd}"
             os.mkdir(d)
-            open(f"{d}/__init__.py", "w").write(f"from command.{cmd}.{cmd} import *\n")
+            open(f"{d}/__init__.py", "w").write(f"from .{cmd} import {cmd.capitalize()}\n")
             _make_template(cmd, d)
 
             # コマンドの紐づけ
             # commandフォルダ直下の__init__.pyにコマンドを追加
             d = f"{__file__}/../../__init__.py"
-            open(d, "a").write(f"from .{cmd} import *\n")
+            open(d, "a").write(f"from .{cmd} import {cmd.capitalize()}\n")
             # yamlにコマンドを追加
             d = f"{__file__}/../../../application.yaml"
             open(d, "a").write(f"    - {cmd}\n")
@@ -39,3 +39,4 @@ class New(Command):
             d = f"{__file__}/../../../command_factory.py"
             open(d, "a").write(f'command_map["{cmd}"] = cmd.{cmd.capitalize()}\n')
             print(f"'{cmd}' command has been created.")
+            print(f"Please command 'python -m poppo {cmd}' to check the command which you have just created.")

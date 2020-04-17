@@ -1,1 +1,1 @@
-from command.delete.delete import *
+from .delete import Delete

@@ -25,7 +25,7 @@ class Delete(Command):
         for cmd in self.argv:
             d = f"{__file__}\\..\\..\\{cmd}"
             if os.path.exists(d):
-                print(f"Deletes {cmd}'s:")
+                print(f"Deleted {cmd}'s:")
                 shutil.rmtree(d)
                 print("    command folder")
             else:

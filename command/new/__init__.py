@@ -1,1 +1,1 @@
-from command.new.new import New
+from .new import New

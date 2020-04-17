@@ -1,1 +1,1 @@
-from command.alias.alias import *
+from .alias import Alias

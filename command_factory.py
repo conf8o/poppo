@@ -1,4 +1,4 @@
-import command as cmd
+from . import command as cmd
 import yaml
 from typing import Type, Dict
 
@@ -15,3 +15,5 @@ def commander_of(command: str) -> Type[cmd.Command]:
 command_map["alias"] = cmd.Alias
 command_map["new"] = cmd.New
 command_map["delete"] = cmd.Delete
+command_map["memo"] = cmd.Memo
+command_map["timecalc"] = cmd.Timecalc
