@@ -93,13 +93,13 @@ $ python -m poppo delete mycommand
 ### 作成したコマンドのフォルダの__init__.pyを作成
 
 ```python
-from command.mycommand.mycommand import *
+from .mycommand import Mycommand
 ```
 
 ### commandフォルダの__init__.pyにコマンドクラスのインポートを追加
 
 ```python
-from .mycommand import *
+from .mycommand import Mycommand
 ```
 
 ### application.yamlにコマンドを設定
