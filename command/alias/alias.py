@@ -4,7 +4,7 @@ import os
 
 
 def _alias(cmd, path):
-    text = f"@echo off\npython {__file__}\\..\\..\\..\\main.py {cmd} %*\n"
+    text = f"@echo off\ncd {__file__}\\..\\..\\..\\..\npython -m poppo {cmd} %*\ncd {__file__}\\..\\..\\..\\..\\.."
     open(f"{path}/{cmd}.bat", "w").write(text)
 
 
@@ -33,7 +33,7 @@ class Alias(Command):
             if ans in {"Y", "y"}:
                 paths = [self.default_path]
             else:
-                print("Making alias has been canceled.")
+                print("Making alias was canceled.")
                 return
         
         for cmd in cmds:

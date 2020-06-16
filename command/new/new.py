@@ -37,6 +37,6 @@ class New(Command):
             open(d, "a").write(f"    - {cmd}\n")
             # factoryにコマンドを追加
             d = f"{__file__}/../../../command_factory.py"
-            open(d, "a").write(f'command_map["{cmd}"] = cmd.{cmd.capitalize()}\n')
+            open(d, "a").write(f'command_map["{cmd}"] = {cmd.capitalize()}\n')
             print(f"'{cmd}' command has been created.")
             print(f"Please command 'python -m poppo {cmd}' to check the command which you have just created.")

@@ -44,7 +44,7 @@ class MyCommand(Command):
         # TODO オプションに対する引数の対応。
 
     def exec(self):
-        # 実装。
+        # 実装はここに書く。
 ```
 
 ## コマンドの実行
@@ -53,7 +53,7 @@ class MyCommand(Command):
 $ python -m poppo mycommand arg -o
 ```
 
-## その他の機能
+## その他用意している機能
 
 ### コマンドのエイリアス作成
 
@@ -72,7 +72,7 @@ path:
 $ python -m poppo alias mycommand user
 ```
 
-バッチファイルが指定のパスに作成されるため、
+バッチファイル(.bat)が指定のパスに作成されるため、
 
 リリース先で実行可能
 
@@ -88,7 +88,7 @@ $ python -m poppo delete mycommand
 
 ---
 
-## newコマンドで作成されるものたち
+## (備考)newコマンドで作成されるものたち
 
 ### 作成したコマンドのフォルダの__init__.pyを作成
 
@@ -107,12 +107,11 @@ from .mycommand import Mycommand
 ```yaml
 commands:
   - mycommand
-
 ```
 
 ### command_factory.pyでコマンドとコマンドクラスを対応させる
 
 ```python
-commands_dict["mycommand"] = cmd.MyCommand
+commands_dict["mycommand"] = MyCommand
 
 ```
