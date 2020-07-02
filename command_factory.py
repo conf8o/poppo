@@ -14,3 +14,9 @@ def commander_of(command: str) -> Type[Command]:
 command_map["alias"] = Alias
 command_map["new"] = New
 command_map["delete"] = Delete
+command_map["memo"] = Memo
+command_map["timecalc"] = Timecalc
+command_map["routine"] = Routine
+command_map["diff"] = Diff
+command_map["calendar"] = Calendar
+command_map["translate"] = Translate

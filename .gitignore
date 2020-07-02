@@ -2,3 +2,6 @@
 __pycache__
 .idea
 .gitignore
+*.yaml
+*.bat
+*.txt
