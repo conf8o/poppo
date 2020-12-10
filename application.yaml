@@ -1,0 +1,11 @@
+commands:
+    - alias
+    - new
+    - delete
+    - memo
+    - timecalc
+    - routine
+    - diff
+    - calendar
+    - translate
+    - dev

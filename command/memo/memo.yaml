@@ -1,0 +1,5 @@
+root: C:\Users\{YOUR DIR}
+extensions:
+  - .txt
+  - .html
+  - .url
